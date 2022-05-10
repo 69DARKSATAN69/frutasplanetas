@@ -7,12 +7,15 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		int opcion = 0;
+		boolean salir = false;
+		Scanner sc = new Scanner(System.in);
 		Lector lector = new Lector();
 		ArrayList<Fruta> frutas = new ArrayList<>();
 		ArrayList<Planeta> planetas = new ArrayList<>();
@@ -56,6 +59,22 @@ public class Main {
 			System.out.println("Error probable, la lista son " + planetas.size() + " en vez de " + lineas2.size());
 		}
 
+	
+
+		
+	
+	
+	while(!salir) {
+		System.out.println("Bienvenido a un menu.");
+	System.out.println("Elige una opcion: ");
+	System.out.println("1. Imprimir la lista combinada.");
+	System.out.println("2. Imprimir la lista ordenada.");
+	System.out.println("3. Salir");
+
+	opcion = sc.nextInt();
+
+	switch(opcion) {
+	case 1:
 		todo.add(0, frutas.get(0));
 		for (int i = 1; i < frutas.size() + planetas.size(); i++) {
 			if (todo.get(i - 1) instanceof Fruta && counterPlanetas < planetas.size()) {
@@ -80,7 +99,10 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		System.out.println("Archivo impreso.");
+		break;
+	
+	case 2:
 		for(Planeta p : planetas) {
 			todo2.add(p.toString());
 		}
@@ -100,6 +122,16 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("Archivo ordenado e impreso.");
+		break;
+		
+	case 3:
+		System.out.println("Sayonara");
+		salir = true;
+		break;
+		
+	}
 	}
 
 }
+	}
